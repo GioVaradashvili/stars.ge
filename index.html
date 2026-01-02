@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="image.png" type="image/icon type">
+    <title>☀️🌙⭐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <input id="search-bar" type="text" placeholder="მოძებნე ვარსკვლავის ID ან სახელი">
+
+    <div class="social-icons">
+        <a href="https://www.instagram.com/sun_night_and_stars/"><img src="image copy.png" alt="Instagram"></a>
+        <a href="https://www.facebook.com/varadashvili.giorgi?locale=ka_GE"><img src="image copy 2.png" alt="Instagram"></a>
+    </div>
+
+    <div id="sky-viewport">
+        <div id="sky"></div>
+    </div>
+
+    <div id="star-detail-panel" class="hidden">
+        <button class="close-panel" onclick="hideUI()">×</button>
+        <div class="panel-content">
+            <div id="status-badge" class="badge">AVAILABLE</div>
+            <p><strong>ID:</strong> <span id="p-id"></span></p>
+            <p><strong>სახელი:</strong> <span id="p-name"></span></p>
+            <p><strong>მფლობელი:</strong> <span id="p-owner"></span></p>
+            <button id="buy-btn" class="buy-btn-small" onclick="openOrderModal()">იყიდეთ ეს ვარსკვლავი</button>
+        </div>
+    </div>
+
+    <div id="modal-backdrop" class="hidden">
+        <div class="modal">
+            <h2>იყიდეთ ეს ვარსკვლავი</h2>
+            <p class="modal-sub">ფასი: ₾40</p>
+            <div class="bank-details">
+                <p>თანხა გადაიხადეთ აქ:</p>
+                <div class="bank-row">Instagram: <span>sun_night_and_stars</span></div>
+                <div class="bank-row">Facebook: <span>Giorgi Varadashvili </span></div>
+            </div>
+            <form id="order-form" onsubmit="handleFormSubmit(event)">
+                <label>ვარსკვლავის სახელი</label>
+                <input type="text" id="form-star-name" required placeholder="მაგ: ანა">
+                <label>მფლობელი (სახელი და გვარი)</label>
+                <input type="text" id="form-owner-name" required placeholder="ვის სახელზე რეგისტრირდება">
+                <div class="actions">
+                    <button type="button" class="btn-cancel" onclick="hideUI()">გაუქმება</button>
+                    <button type="submit" class="btn-submit">დადასტურება</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

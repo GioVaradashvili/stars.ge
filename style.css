@@ -1,0 +1,47 @@
+:root { --bg: #05050a; --accent: #ffcc00; }
+body, html { margin: 0; padding: 0; background: var(--bg); color: white; overflow: hidden; font-family: sans-serif; }
+
+#search-bar { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 300px; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; color: white; backdrop-filter: blur(10px); outline: none; text-align: center; }
+
+.social-icons { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; }
+.social-icons img { width: 30px; height: 30px; filter: invert(1); opacity: 0.8; }
+
+#sky-viewport { width: 100vw; height: 100vh; cursor: grab; }
+#sky { width: 6000px; height: 6000px; position: absolute; background: radial-gradient(circle, #0d0d21 0%, #05050a 100%); }
+
+.star { position: absolute; border-radius: 50%; cursor: pointer; transition: transform 0.3s; animation: twinkle var(--dur) infinite ease-in-out; }
+.star.active { background: #fff !important; box-shadow: 0 0 30px 10px white; transform: scale(4); z-index: 100; }
+
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+#star-detail-panel { position: fixed; bottom: 20px; left: 20px; background: rgba(255,255,255,0.95); color: #111; padding: 20px; border-radius: 12px; width: 260px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.close-panel { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; }
+
+.badge { padding: 4px 8px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; display: inline-block; font-size: 10px; }
+.badge.available { background: #e8f5e9; color: #2e7d32; }
+.badge.taken { background: #ffebee; color: #c62828; }
+
+.buy-btn-small { background: var(--accent); border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+
+#modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 2000; }
+.modal { background: #0d0d21; width: 350px; padding: 25px; border-radius: 15px; border: 1px solid #333; }
+.bank-details { background: #1a1a35; padding: 15px; border-radius: 8px; margin: 15px 0; font-size: 13px; }
+.bank-row span { color: var(--accent); font-family: monospace; font-weight: bold; }
+
+form label { display: block; margin-top: 15px; font-size: 13px; color: #ccc; }
+form input { width: 100%; padding: 12px; margin-top: 5px; background: #15152e; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box; }
+
+.actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 25px; }
+.btn-submit { background: white; color: black; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+.btn-cancel { background: transparent; color: #888; border: none; cursor: pointer; }
+
+.hidden { display: none !important; }
+
+@media (max-width: 600px) {
+    #search-bar { width: 80%; top: 15px; font-size: 14px; }
+    .social-icons { top: unset; bottom: 20px; right: 20px; flex-direction: column; }
+    #star-detail-panel { width: calc(100% - 40px); left: 20px; bottom: 20px; box-sizing: border-box; }
+    .modal { width: 90%; padding: 15px; }
+    .bank-details { font-size: 11px; }
+    .btn-submit { width: 100%; }
+}
